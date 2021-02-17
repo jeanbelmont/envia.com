@@ -1,0 +1,70 @@
+<%- include('template-parts/header.ejs')%>
+   <link rel="stylesheet" href="../css/docs.css">
+   <main class="container">
+      <!---->
+      <div class="py-5 text-center">
+         <img class="d-block mx-auto mb-4"
+            src="https://s3.us-east-2.amazonaws.com/enviapaqueteria/uploads/landing/images/countries/MEX/logo-dark.svg"
+            alt="" width="200" height="57">
+         <h2>Full Stack Developer</h2>
+         <p class="lead"> <%- user? `<b>${user.nombre}</b> <br />` : ' ' %>
+            consiste en crear guias por medio de una api y recibir la respuesta en un Socket
+         </p>
+      </div>
+      <!---->
+   
+         <!--CARDS-->
+         <div class="row p-3 rounded shadow">
+            <% data.forEach((x)=>{ %>
+               <div class="col-md-4 my-3">
+                  <div class="card">
+                     <div class="card-body">
+                        <h5 class="card-title">Guia: <%= x.trackingNumber %></h5>
+                        <p class="card-text">Carrier: <%= x.carrier %> Service: <%= x.service %></p>
+                        <span class="badge bg-secondary">conteo: <%= x.id %></span> <span class="badge bg-success">fecha: <%= x.dateMX %> </span>
+                     </div>
+                  </div>
+               </div>
+            <% }) %> <!--END foE-->
+            </div>
+         <!--CARDS-->
+         <div class="d-flex text-muted pt-3"></div>
+         <!--Paginacion-->
+       
+         <div class="d-flex text-muted pt-3"></div>
+         <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+               <li class="page-item <%= page < 2 ? 'disabled' : ' ' %>">
+                  <a class="page-link" href="?page=<%= page-1 %> ">Ant.</a>
+               </li>
+               <!-- paginas -->
+          
+               <!--LinksR-->
+               <% let linksR = page+2; if( linksR > total_pages){ linksR = total_pages;} %>
+               <% let linksL = page-2; if( linksL < 1){linksR = linksL+5; linksL = 1;} %>
+               <!-- for each -->
+               <% for (let n = linksL; n <= linksR; n++) { %>
+               <li class="page-item  <%= n == page ? 'active' : ' ' %>"><a class="page-link" name="page" href="?page=<%= n %> "><%= n %> </a></li>
+               <% } %>
+           
+               <!-- paginas -->
+               <li class="page-item <%= page+3 > total_pages ? 'disabled' : ' ' %> ">
+                  <a class="page-link" href="?page=<%= page+1 %> ">Sig.</a>
+               </li>
+            </ul>
+         </nav>
+   </main>
+   <!--///////////////////////////////////////////-->
+   <!-- Modal -->
+   <div class="modal fade" id="ModalLoader" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="d-flex justify-content-center" style="margin-top: calc(50vh - 16px);">
+            <div class="spinner-grow text-warning" role="status">
+               <span class="sr-only"></span>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!---->
+   <%- include('template-parts/footer.ejs')%>

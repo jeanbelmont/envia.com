@@ -1,0 +1,25 @@
+<%- include('template-parts/header.ejs')%>
+
+<main class="container">
+   <!---->
+   <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+   <img class="me-3" src="https://s3.us-east-2.amazonaws.com/envia-staging/uploads/landing/images/countries/MEX/white-logo.svg" alt="" width="100" height="50">
+   <div class="lh-1">
+   <h1 class="h6 mb-0 text-white lh-1">Full Stack developer</h1>
+   <%- user? `<small>${user.nombre}</small> <br />` : ' ' %>
+   </div>
+</div>
+<!-- -->
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+<h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
+<div class="d-flex text-muted pt-3"></div>
+<!---->
+<section id="message-container"></section>
+<!---->
+<small class="d-block text-end mt-3">
+   <a class="btn btn-outline-secondary" href="#" role="button">Regresar arriba</a>
+</small>
+</div>
+</main>
+<script defer src="js/listener.js"></script>
+<%- include('template-parts/footer.ejs')%>

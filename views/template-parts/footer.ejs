@@ -1,0 +1,71 @@
+<!-- Toast -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+   <div id="liveToast" class="toast hide " role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+         <strong class="me-auto toast_title">Guia creada</strong>
+         <small class="toast_date text-primary"></small>
+         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        <b> <span class="toast_content"></span> </b> &nbsp;&nbsp;
+         <span style="right:0" class="toast_number badge bg-primary text-light"></span>
+      </div>
+   </div>
+</div>
+<footer class="footer mt-auto py-3 bg-light text-muted text-center text-small">
+   <section class="container">
+      <p class="mb-1">© 2019–2021 jjco</p>
+      <ul class="list-inline">
+         <li class="list-inline-item"><a href="/#" data-bs-toggle="modal" data-bs-target="#modal_contacto">Contacto</a></li>
+         <li class="list-inline-item"><a href="#">Terms</a></li>
+         <li class="list-inline-item"><a href="#">Support</a></li>
+      </ul>
+   </section>
+   <!--Fora de contacto-->
+   <section class="fomra de contacto">
+      <div class="modal fade text-dark" id="modal_contacto" tabindex="-1" aria-labelledby="modal_contacto"
+         aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <form id="forma_contacto" action="/contact" method="post" class="mb-3 needs-validation was-validated"
+                     novalidate>
+                     <div class="form-floating mb-3">
+                        <input type="email" class="form-control" name="email_from" id="email_from" placeholder="Email"
+                           required />
+                        <label for="recipient-name" class="col-form-label text-black">Email:</label>
+                        <span id="mail_falso" class="fw-light fs-6 text-danger invisible"> introduzca un email válido
+                        </span>
+                     </div>
+                     <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="subject" id="email_subject" placeholder="Subject"
+                           required />
+                        <label for="recipient-name" class="col-form-label text-black">Subject:</label>
+                     </div>
+                     <div class="form-floating mb-3">
+                        <textarea class="form-control" id="email_content" name="content" style="height: 100px"
+                           placeholder="Content" required></textarea>
+                        <label for="message-text" class="col-form-label">Message:</label>
+                     </div>
+                     <input id="_id" type="hidden" name="_id" value="adbvb3baw34baw34baw34baw34b" />
+   
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button id="send_email" form="forma_contacto" type="submit" class="btn btn-primary disabled">Send
+                     email</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--Fora de contacto-->
+</footer>
+<script id="<%= (typeof cookie != 'undefined') ? cookie :  '' %>" class="ssn" src="../js/contact.js"></script>
+</body>
+</html>
